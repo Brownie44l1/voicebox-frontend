@@ -1,0 +1,95 @@
+.footer {
+  position: relative;
+  padding: 3rem 1.5rem;
+  border-top: 1px solid rgba(var(--border-primary), var(--border-alpha));
+  background-color: rgb(var(--bg-primary));
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(59, 130, 246, 0.01) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.01) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.footer-container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand .brand-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(to bottom right, rgb(var(--primary-blue)), rgb(var(--accent-purple)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-brand .brand-icon svg {
+  color: white;
+}
+
+.footer-brand .brand-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  background: linear-gradient(to right, rgb(var(--primary-blue)), rgb(var(--accent-purple)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-content {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(var(--border-primary), var(--border-alpha));
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-copyright {
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: rgb(var(--text-tertiary));
+  margin: 0;
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  color: rgb(var(--text-tertiary));
+  margin: 0;
+}
+
+.footer-tagline .cursor {
+  color: rgb(var(--primary-blue));
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

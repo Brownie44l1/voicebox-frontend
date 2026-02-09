@@ -1,0 +1,68 @@
+/* Admin Pages Styles */
+.admin-stats {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.admin-stats .stat-card:first-child .stat-value {
+  color: rgb(var(--primary-blue));
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(var(--bg-secondary), 0.5);
+  border: 1px solid rgba(var(--border-primary), var(--border-alpha));
+  border-radius: 1rem;
+}
+
+.filters select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--bg-tertiary), 0.5);
+  border: 1px solid rgba(var(--border-primary), var(--border-alpha));
+  border-radius: 0.5rem;
+  color: rgb(var(--text-primary));
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: rgb(var(--primary-blue));
+  box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.1);
+}
+
+/* Status Form */
+.status-form {
+  padding: 1.5rem;
+  background-color: rgba(var(--bg-tertiary), 0.2);
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Error Page */
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--text-tertiary));
+  font-size: 1.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters select {
+    min-width: 100%;
+  }
+}
