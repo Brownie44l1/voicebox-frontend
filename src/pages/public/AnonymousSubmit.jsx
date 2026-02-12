@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import api from '../../services/api';
-import Button from '../../components/shared/Button';
-import Alert from '../../components/shared/Alert';
-import './PublicPages.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../../services/api";
+import Button from "../../components/shared/Button";
+import Input from "../../components/shared/Input";
+import Alert from "../../components/shared/Alert";
+import "./PublicPages.css";
 
 const AnonymousSubmit = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    category: 'Academic',
-    priority: 'Medium'
+    title: "",
+    description: "",
+    category: "Academic",
+    priority: "Medium",
   });
-  const [trackingCode, setTrackingCode] = useState('');
-  const [error, setError] = useState('');
+  const [trackingCode, setTrackingCode] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
-      const { data } = await api.post('/complaints/anonymous', formData);
+      const { data } = await api.post("/complaints/anonymous", formData);
       setTrackingCode(data.data.trackingCode);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to submit complaint');
+      setError(err.response?.data?.message || "Failed to submit complaint");
     } finally {
       setLoading(false);
     }
@@ -45,14 +46,19 @@ const AnonymousSubmit = () => {
         <div className="success-container">
           <div className="success-icon">✅</div>
           <h1>Complaint Submitted Successfully!</h1>
-          <p>Your complaint has been submitted anonymously. Please save this tracking code to check the status later:</p>
+          <p>
+            Your complaint has been submitted anonymously. Please save this
+            tracking code to check the status later:
+          </p>
           <div className="tracking-code-display">
             <code>{trackingCode}</code>
             <Button variant="secondary" onClick={copyCode}>
               Copy Code
             </Button>
           </div>
-          <p className="warning-text">⚠️ Important: Save this code! You won't be able to recover it later.</p>
+          <p className="warning-text">
+            ⚠️ Important: Save this code! You won't be able to recover it later.
+          </p>
           <Link to="/track">
             <Button>Track This Complaint</Button>
           </Link>
@@ -65,28 +71,37 @@ const AnonymousSubmit = () => {
     <div className="page-container">
       <div className="form-container">
         <h1>Submit Anonymous Complaint</h1>
-        <p className="info-text">Your identity will be kept completely anonymous. You will receive a tracking code to monitor the status.</p>
-        
-        {error && <Alert type="error" message={error} onClose={() => setError('')} />}
-        
+        <p className="info-text">
+          Your identity will be kept completely anonymous. You will receive a
+          tracking code to monitor the status.
+        </p>
+
+        {error && (
+          <Alert type="error" message={error} onClose={() => setError("")} />
+        )}
+
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Title *</label>
-            <input
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleChange}
-              required
-              maxLength="200"
-              placeholder="Brief description of the issue"
-            />
-          </div>
+          <Input
+            label="Title *"
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+            maxLength="200"
+            placeholder="Brief description of the issue"
+          />
 
           <div className="form-row">
             <div className="form-group">
               <label>Category *</label>
-              <select name="category" value={formData.category} onChange={handleChange} required>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+                className="input"
+              >
                 <option value="Academic">Academic</option>
                 <option value="Facilities">Facilities</option>
                 <option value="Student Services">Student Services</option>
@@ -98,7 +113,13 @@ const AnonymousSubmit = () => {
 
             <div className="form-group">
               <label>Priority *</label>
-              <select name="priority" value={formData.priority} onChange={handleChange} required>
+              <select
+                name="priority"
+                value={formData.priority}
+                onChange={handleChange}
+                required
+                className="input"
+              >
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
@@ -117,11 +138,12 @@ const AnonymousSubmit = () => {
               maxLength="2000"
               rows="6"
               placeholder="Provide detailed information about your complaint..."
+              className="input"
             />
           </div>
 
           <Button type="submit" block disabled={loading}>
-            {loading ? 'Submitting...' : 'Submit Anonymous Complaint'}
+            {loading ? "Submitting..." : "Submit Anonymous Complaint"}
           </Button>
         </form>
       </div>

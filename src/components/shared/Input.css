@@ -1,0 +1,85 @@
+/* Input Component Styles */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(var(--bg-secondary), 0.5);
+  border: 2px solid rgba(var(--border-primary), 0.3);
+  border-radius: 0.5rem;
+  color: rgb(var(--text-primary));
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: rgb(var(--text-tertiary));
+  opacity: 0.6;
+}
+
+/* Focus state - works in both dark and light mode */
+.input:focus {
+  outline: none;
+  background-color: rgba(var(--bg-secondary), 0.8);
+  border-color: rgb(var(--primary-blue));
+  box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.15);
+}
+
+/* Hover state */
+.input:hover:not(:focus) {
+  border-color: rgba(var(--border-secondary), 0.5);
+}
+
+/* Disabled state */
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: rgba(var(--bg-tertiary), 0.3);
+}
+
+/* Error state */
+.input-error {
+  border-color: rgb(var(--priority-critical));
+  background-color: rgba(var(--priority-critical), 0.05);
+}
+
+.input-error:focus {
+  border-color: rgb(var(--priority-critical));
+  box-shadow: 0 0 0 3px rgba(var(--priority-critical), 0.15);
+}
+
+.input-error-text {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgb(var(--priority-critical));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.input-help {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgb(var(--text-tertiary));
+  font-size: 0.875rem;
+}
+
+/* Textarea specific */
+textarea.input {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+/* Select specific */
+select.input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23CBD5E1' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.light-theme select.input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748B' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+}

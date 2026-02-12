@@ -53,6 +53,7 @@
   padding: 1rem;
   background-color: rgba(var(--bg-tertiary), 0.5);
   border-radius: 0.5rem;
+  border: 2px solid rgba(var(--primary-blue), 0.3);
 }
 
 .warning-text {
@@ -100,9 +101,11 @@
   font-weight: 600;
 }
 
+/* Tracking input specific styling */
 .tracking-input {
   font-family: 'Courier New', monospace;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* Responsive */

@@ -311,33 +311,8 @@ h6 { font-size: 1rem; }
   font-size: 0.875rem;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: rgba(var(--bg-secondary), 0.5);
-  border: 1px solid rgba(var(--border-primary), var(--border-alpha));
-  border-radius: 0.5rem;
-  color: rgb(var(--text-primary));
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: rgb(var(--primary-blue));
-  box-shadow: 0 0 0 3px rgba(var(--primary-blue), 0.1);
-}
-
-.form-group small {
-  display: block;
-  margin-top: 0.5rem;
-  color: rgb(var(--text-tertiary));
-  font-size: 0.875rem;
-}
+/* REMOVED THE PROBLEMATIC GLOBAL INPUT STYLES - NOW USING COMPONENT-BASED STYLING */
+/* These styles are now in Input.css and PasswordInput.css for better control */
 
 .form-row {
   display: grid;
@@ -437,6 +412,12 @@ h6 { font-size: 1rem; }
   padding-bottom: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+/* Form Container for centered forms */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ==================== RESPONSIVE ==================== */
